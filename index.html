@@ -9,45 +9,43 @@
 <body>
   <div class="app">
     <header>
-      <h1>Aplicación del Clima</h1>
+      <h1 class="titulo">🌤 Aplicación del Clima</h1>
       <div class="barra-busqueda">
-        <input type="text" id="buscar-ciudad" placeholder="Buscar ciudad...">
-        <button id="boton-buscar">Buscar</button>
-        <button id="cambiar-unidad">°C / °F</button>
+        <input type="text" id="buscar-ciudad" placeholder="Introduce el ID de la ciudad..." class="input-busqueda">
+        <button id="boton-buscar" class="boton">Buscar</button>
+        <button id="cambiar-unidad" class="boton">°C / °F</button>
       </div>
     </header>
 
     <main>
       <!-- Clima Actual -->
-      <section class="clima-actual">
-        <div class="info-actual">
-          <h2 id="nombre-ciudad">Nombre de la Ciudad</h2>
-          <p id="temperatura-actual">--°C</p>
-          <p id="descripcion-actual">Cielo despejado</p>
-          <p id="viento-actual">Viento: -- km/h</p>
-        </div>
-        <div class="pronostico-horas" id="pronostico-horas">
-          <!-- Las tarjetas de pronóstico por horas se agregarán dinámicamente -->
-        </div>
+      <section id="clima-actual" class="tarjeta-principal">
+        <h2 id="nombre-ciudad" class="nombre-ciudad">Nombre de la Ciudad</h2>
+        <p id="temperatura-actual" class="temperatura-actual">--°C</p>
+        <p id="descripcion-actual" class="descripcion-actual">Cielo despejado</p>
+        <p id="viento-actual" class="viento-actual">Viento: -- km/h</p>
       </section>
 
-      <!-- Otras Ciudades -->
-      <section class="ciudades-destacadas">
-        <h3>Otras ciudades destacadas</h3>
-        <div class="ciudades" id="ciudades-destacadas">
-          <!-- Tarjetas para las ciudades destacadas -->
+      <!-- Ciudades destacadas -->
+      <section id="ciudades-destacadas" class="ciudades-destacadas">
+        <h3 class="titulo-seccion">🌍 Otras ciudades destacadas</h3>
+        <div class="contenedor-ciudades">
+          <!-- Ciudades destacadas dinámicas -->
         </div>
       </section>
 
       <!-- Pronóstico de 5 días -->
-      <section class="pronostico-5-dias">
-        <h3>Pronóstico de 5 días</h3>
-        <div class="pronostico-diario" id="pronostico-diario">
-          <!-- Tarjetas de pronóstico diario se agregarán dinámicamente -->
+      <section id="pronostico-5-dias" class="pronostico-5-dias">
+        <h3 class="titulo-seccion">📅 Pronóstico de 5 días</h3>
+        <div id="pronostico-diario" class="contenedor-pronostico">
+          <!-- Pronóstico de 5 días dinámico -->
         </div>
       </section>
     </main>
+
+    <footer>
+      <p>Desarrollado por <a href="#" class="enlace">Tu Nombre</a> © 2024</p>
+    </footer>
   </div>
-  <script src="scripts/app.js"></script>
 </body>
 </html>

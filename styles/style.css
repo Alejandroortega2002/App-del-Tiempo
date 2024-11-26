@@ -1,82 +1,179 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* Estilos Generales */
+* {
     margin: 0;
     padding: 0;
-    background-color: #1e1e2f;
-    color: #ffffff;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
   }
   
-  h1, h2, h3 {
-    text-align: center;
+  body {
+    background: linear-gradient(to bottom, #1e1e30, #2e2e45);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
   }
   
   .app {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 900px;
+    background-color: #242447;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
   }
   
   header {
     text-align: center;
-    background-color: #3a3a5a;
+    background-color: #32325d;
     padding: 20px;
-    border-radius: 10px;
+    border-bottom: 1px solid #444466;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
   }
   
   .barra-busqueda {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    gap: 10px;
   }
   
-  input, button {
+  .input-busqueda {
     padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 5px;
+    font-size: 1rem;
+    width: 60%;
+    max-width: 300px;
   }
   
-  button {
-    background-color: #0078d7;
-    color: white;
+  .boton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    background-color: #0078d7;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
   }
   
-  button:hover {
-    background-color: #0056a3;
+  .boton:hover {
+    background-color: #005bb5;
   }
   
-  main {
-    margin-top: 20px;
-  }
-  
-  .clima-actual, .ciudades-destacadas, .pronostico-5-dias {
-    background-color: #2e2e4a;
+  /* Tarjeta Principal */
+  .tarjeta-principal {
+    background: #3a3a5a;
+    margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .info-actual {
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
   
-  .pronostico-horas, .pronostico-diario, .ciudades {
+  .nombre-ciudad {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .temperatura-actual {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .descripcion-actual, .viento-actual {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  /* Ciudades Destacadas */
+  .ciudades-destacadas {
+    padding: 20px;
+  }
+  
+  .titulo-seccion {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .contenedor-ciudades {
     display: flex;
     gap: 10px;
     overflow-x: auto;
+    padding: 10px 0;
   }
   
-  .tarjeta {
-    background-color: #444466;
-    padding: 10px;
-    border-radius: 5px;
+  .tarjeta-ciudad {
+    background: #444466;
+    padding: 15px;
+    border-radius: 8px;
     text-align: center;
-    flex: 0 0 auto;
-    min-width: 100px;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
-  .tarjeta h4 {
-    margin: 10px 0;
+  .tarjeta-ciudad h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .tarjeta-ciudad p {
+    font-size: 0.9rem;
+    margin: 3px 0;
+  }
+  
+  /* Pronóstico de 5 días */
+  .pronostico-5-dias {
+    padding: 20px;
+  }
+  
+  .contenedor-pronostico {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+  }
+  
+  .tarjeta-pronostico {
+    background: #444466;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .tarjeta-pronostico p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #32325d;
+    border-top: 1px solid #444466;
+  }
+  
+  footer p {
+    font-size: 0.9rem;
+  }
+  
+  .enlace {
+    color: #0078d7;
+    text-decoration: none;
+  }
+  
+  .enlace:hover {
+    text-decoration: underline;
   }
   
