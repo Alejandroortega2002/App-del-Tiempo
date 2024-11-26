@@ -1,35 +1,36 @@
-const API_KEY = 'your_api_key_here';
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/';
+const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4YW9uLmFvQGdtYWlsLmNvbSIsImp0aSI6IjUwNzUyNGViLTZmNWMtNDU1Mi05ZTc0LWQ2N2NmYThmMWZjNSIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNzMyNjQ4OTA2LCJ1c2VySWQiOiI1MDc1MjRlYi02ZjVjLTQ1NTItOWU3NC1kNjdjZmE4ZjFmYzUiLCJyb2xlIjoiIn0.4vR4f6IblHel4WOw9dl1NGyQO3ISAWxhpKwmO7-DFpc';
+const BASE_URL = 'https://opendata.aemet.es/opendata/api/';
 
-const searchButton = document.getElementById('search-button');
-const currentLocationButton = document.getElementById('current-location');
-const toggleUnitButton = document.getElementById('toggle-unit');
-
-let isCelsius = true;
-
-async function fetchWeather(city) {
-    const response = await fetch(`${BASE_URL}weather?q=${city}&units=${isCelsius ? 'metric' : 'imperial'}&appid=${API_KEY}`);
+async function obtenerClima(ciudad) {
+  const endpoint = `${BASE_URL}prediccion/especifica/municipio/diaria/${ciudad}/?api_key=${API_KEY}`;
+  
+  try {
+    const response = await fetch(endpoint);
     const data = await response.json();
-    displayCurrentWeather(data);
+
+    if (data.datos) {
+      const climaResponse = await fetch(data.datos);
+      const climaData = await climaResponse.json();
+      mostrarClimaActual(climaData);
+    } else {
+      console.error('Error al obtener datos del clima:', data);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
-function displayCurrentWeather(data) {
-    document.getElementById('location').innerText = `${data.name}, ${data.sys.country}`;
-    document.getElementById('temperature').innerText = `${data.main.temp}°${isCelsius ? 'C' : 'F'}`;
-    document.getElementById('weather-status').innerText = data.weather[0].description;
-    document.getElementById('min-max-temp').innerText = `Min: ${data.main.temp_min}° | Max: ${data.main.temp_max}°`;
-    document.getElementById('wind-speed').innerText = `Wind: ${data.wind.speed} km/h`;
-    document.getElementById('current-time').innerText = new Date().toLocaleTimeString();
+function mostrarClimaActual(data) {
+  document.getElementById('nombre-ciudad').innerText = data.nombre;
+  document.getElementById('temperatura-actual').innerText = `${data.temperatura_actual}°C`;
+  document.getElementById('descripcion-actual').innerText = data.estado_cielo.descripcion;
+  document.getElementById('viento-actual').innerText = `Viento: ${data.viento} km/h`;
 }
 
-searchButton.addEventListener('click', () => {
-    const city = document.getElementById('search-city').value;
-    if (city) fetchWeather(city);
+// Agrega eventos al botón de buscar
+document.getElementById('boton-buscar').addEventListener('click', () => {
+  const ciudad = document.getElementById('buscar-ciudad').value;
+  if (ciudad) {
+    obtenerClima(ciudad);
+  }
 });
-
-toggleUnitButton.addEventListener('click', () => {
-    isCelsius = !isCelsius;
-    toggleUnitButton.innerText = isCelsius ? 'Switch to °F' : 'Switch to °C';
-});
-
-// Fetch weather for default or current location

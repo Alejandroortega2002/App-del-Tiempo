@@ -1,31 +1,82 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #0078d7;
-    color: #fff;
-}
-main {
+    background-color: #1e1e2f;
+    color: #ffffff;
+  }
+  
+  h1, h2, h3 {
+    text-align: center;
+  }
+  
+  .app {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  header {
+    text-align: center;
+    background-color: #3a3a5a;
     padding: 20px;
-}
-#current-weather, #hourly-forecast, #five-day-forecast, #featured-cities {
+    border-radius: 10px;
+  }
+  
+  .barra-busqueda {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  input, button {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #0078d7;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056a3;
+  }
+  
+  main {
+    margin-top: 20px;
+  }
+  
+  .clima-actual, .ciudades-destacadas, .pronostico-5-dias {
+    background-color: #2e2e4a;
+    padding: 20px;
+    border-radius: 10px;
     margin-bottom: 20px;
-}
-#hourly-container, #daily-container, #cities-container {
+  }
+  
+  .info-actual {
+    text-align: center;
+  }
+  
+  .pronostico-horas, .pronostico-diario, .ciudades {
     display: flex;
     gap: 10px;
-    overflow-x: scroll;
-}
-.weather-card {
+    overflow-x: auto;
+  }
+  
+  .tarjeta {
+    background-color: #444466;
     padding: 10px;
-    background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+    text-align: center;
+    flex: 0 0 auto;
+    min-width: 100px;
+  }
+  
+  .tarjeta h4 {
+    margin: 10px 0;
+  }
+  
