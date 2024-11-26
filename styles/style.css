@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #0078d7;
+    color: #fff;
+}
+main {
+    padding: 20px;
+}
+#current-weather, #hourly-forecast, #five-day-forecast, #featured-cities {
+    margin-bottom: 20px;
+}
+#hourly-container, #daily-container, #cities-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+}
+.weather-card {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

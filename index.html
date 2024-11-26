@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Weather App</h1>
+        <input type="text" id="search-city" placeholder="Search for a city..." />
+        <button id="search-button">Search</button>
+        <button id="current-location">Use Current Location</button>
+    </header>
+    <main>
+        <section id="current-weather">
+            <h2 id="location">City, Country</h2>
+            <p id="temperature">--°C</p>
+            <p id="weather-status">Clear Sky</p>
+            <p id="min-max-temp">Min: --°C | Max: --°C</p>
+            <p id="wind-speed">Wind: -- km/h</p>
+            <p id="current-time">--:--</p>
+        </section>
+        <section id="hourly-forecast">
+            <h3>Next 24 Hours</h3>
+            <div id="hourly-container">
+                <!-- Cards for hourly forecast -->
+            </div>
+        </section>
+        <section id="five-day-forecast">
+            <h3>5-Day Forecast</h3>
+            <div id="daily-container">
+                <!-- Cards for daily forecast -->
+            </div>
+        </section>
+        <section id="featured-cities">
+            <h3>Featured Cities</h3>
+            <div id="cities-container">
+                <!-- Weather summaries for New York, Copenhagen, Ho Chi Minh -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <button id="toggle-unit">Switch to °F</button>
+    </footer>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
