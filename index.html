@@ -1,51 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aplicación del Clima</title>
   <link rel="stylesheet" href="styles/style.css">
+  <!-- Agregar el CSS de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha384-M8rldFgT9mrzd5y5sOGj9hBbKAlpvxRB6HAI1KJnzoBoYFL/" crossorigin="" />
 </head>
+
 <body>
   <div class="app">
-    <header>
-      <h1 class="titulo">🌤 Aplicación del Clima</h1>
-      <div class="barra-busqueda">
-        <input type="text" id="buscar-ciudad" placeholder="Introduce el ID de la ciudad..." class="input-busqueda">
-        <button id="boton-buscar" class="boton">Buscar</button>
-        <button id="cambiar-unidad" class="boton">°C / °F</button>
-      </div>
+    <!-- Título Principal -->
+    <h1 class="titulo-principal">The Weather App</h1>
+
+    <!-- Barra de Búsqueda -->
+    <header class="barra-busqueda">
+      <input type="text" id="buscar-ciudad" placeholder="Buscar ciudad..." class="input-busqueda">
+      <button id="boton-buscar" class="boton">🔍 Buscar</button>
+      <button id="boton-unidades" class="boton oculto">°C / °F</button>
     </header>
 
-    <main>
-      <!-- Clima Actual -->
-      <section id="clima-actual" class="tarjeta-principal">
-        <h2 id="nombre-ciudad" class="nombre-ciudad">Nombre de la Ciudad</h2>
-        <p id="temperatura-actual" class="temperatura-actual">--°C</p>
-        <p id="descripcion-actual" class="descripcion-actual">Cielo despejado</p>
-        <p id="viento-actual" class="viento-actual">Viento: -- km/h</p>
-      </section>
+    <!-- Clima Actual y Mapa -->
+    <section>
+      <h2 class="titulo-seccion oculto">Clima Actual</h2>
+      <div class="contenido-principal">
+        <!-- Contenedor del Mapa -->
+        <div id="mapa" class="tarjeta-mapa oculto"></div>
 
-      <!-- Ciudades destacadas -->
-      <section id="ciudades-destacadas" class="ciudades-destacadas">
-        <h3 class="titulo-seccion">🌍 Otras ciudades destacadas</h3>
-        <div class="contenedor-ciudades">
-          <!-- Ciudades destacadas dinámicas -->
+        <!-- Tarjeta de Clima Actual -->
+        <div id="clima-actual" class="tarjeta-principal oculto">
+          <h3 id="nombre-ciudad">Ciudad</h3>
+          <p id="hora-actual">11:45 AM</p>
+          <div class="clima-detalle">
+            <img id="icono-actual" src="multimedia/weather.svg" alt="Icono del clima" class="icono-clima">
+            <div>
+              <p id="temperatura-actual">--°C</p>
+              <p id="descripcion-actual">Cielo despejado</p>
+            </div>
+          </div>
+          <p id="sensacion-actual">Sensación: --°C</p>
+          <p id="humedad-actual">Humedad: --%</p>
+          <p id="viento-actual">Viento: -- km/h</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Pronóstico de 5 días -->
-      <section id="pronostico-5-dias" class="pronostico-5-dias">
-        <h3 class="titulo-seccion">📅 Pronóstico de 5 días</h3>
-        <div id="pronostico-diario" class="contenedor-pronostico">
-          <!-- Pronóstico de 5 días dinámico -->
+    <!-- Pronóstico por Horas -->
+    <section>
+      <h2 class="titulo-seccion oculto">Pronóstico por Horas</h2>
+      <div id="pronostico-horas" class="tarjetas-horizontales oculto">
+        <div id="contenedor-horas" class="contenedor-horas">
+          <!-- Tarjetas dinámicas de pronóstico por horas -->
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      <p>Desarrollado por <a href="#" class="enlace">Tu Nombre</a> © 2024</p>
-    </footer>
+    <!-- Pronóstico de 5 Días -->
+    <section>
+      <h2 class="titulo-seccion oculto">Pronóstico de 5 Días</h2>
+      <div id="pronostico-5-dias" class="tarjetas-verticales oculto">
+        <div id="contenedor-5-dias" class="contenedor-dias">
+          <!-- Tarjetas dinámicas de pronóstico de 5 días -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Otras Ciudades -->
+    <section>
+      <h2 class="titulo-seccion oculto">Ciudades Destacadas</h2>
+      <div id="ciudades-destacadas" class="contenedor-ciudades">
+        <!-- Tarjetas de ciudades se generarán dinámicamente -->
+      </div>
+    </section>
   </div>
+
+  <!-- Agregar el script de Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha384-q3pzOjoLud8kl1StE7nPInUofpG2vm/Gg6KYVCz70plS+LoGqPywYUWWBY6cJCeN" crossorigin=""></script>
+  <script src="scripts/app.js"></script>
 </body>
+
 </html>
