@@ -8,7 +8,7 @@ Este proyecto es una aplicación web que muestra información sobre el clima act
 
 Puedes visitar la página en el siguiente enlace:
 
-[Acceder a la Página Web]((https://alejandroortega2002.github.io/App-del-Tiempo/))
+[Acceder a la Página Web](https://alejandroortega2002.github.io/App-del-Tiempo)
 
 ---
 ## 🔧 Características
